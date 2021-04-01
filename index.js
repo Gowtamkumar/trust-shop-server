@@ -39,7 +39,7 @@ client.connect(err => {
     // Orders by user
     app.get('/Orders', (req, res) => {
         console.log(req.query.email)
-        Ordercollection.find({email: req.query.email})
+        Ordercollection.find({ email: req.query.email })
             .toArray((err, documents) => {
                 res.send(documents)
                 console.log(documents[0])
@@ -79,6 +79,4 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || port)
